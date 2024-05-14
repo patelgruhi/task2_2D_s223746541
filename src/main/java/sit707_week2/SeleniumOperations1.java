@@ -1,7 +1,12 @@
 package sit707_week2;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -24,7 +29,21 @@ public class SeleniumOperations1 {
 		}
 	}
 	
-	
+	public static void ss(WebDriver driver, String path) {
+
+		File ssfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String name = "2.2d(2)" + ".jpg";
+		String Path = path + name;
+		
+		
+		try {
+            Files.copy(ssfile.toPath(), new File(Path).toPath());
+            System.out.println("Screenshot saved successfully at: " + path + " and image name is " + name);
+		    } 
+		catch (IOException e) {
+            System.out.println("Failed to save screenshot: " + e.toString());
+        }
+	}
 	public static void officeworks_registration_page(String url) throws IOException {
 		// Step 1: Locate chrome driver folder in the local drive.
 		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Gruhi\\Downloads\\geckodriver-v0.34.0-win32\\geckodriver.exe");
@@ -58,6 +77,7 @@ public class SeleniumOperations1 {
 		System.out.println("Found element: " + password);
 		password.sendKeys("Qazwsx@123");
 		
+		ss(driver,"C:\\Users\\Gruhi\\Desktop\\707\\github\\task2_2D_s223746541\\screenshot");
 		
 	
 		// Sleep a while

@@ -8,6 +8,7 @@ import java.io.IOException;
  */
 public class Main 
 {
+	
     public static void main( String[] args ) throws IOException
     { 
     	//int n=2;
@@ -20,6 +21,6 @@ public class Main
     	
     	SeleniumOperations1.officeworks_registration_page("https://login.mailchimp.com/signup/");
     	//}
-    	
+	
     }
 }
