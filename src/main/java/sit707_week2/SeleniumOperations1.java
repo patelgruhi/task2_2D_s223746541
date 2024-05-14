@@ -1,14 +1,10 @@
 package sit707_week2;
 
-import org.openqa.selenium.TakesScreenshot;
-import java.io.File;
 import java.io.IOException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
  * This class demonstrates Selenium locator APIs to identify HTML elements.
@@ -31,15 +27,12 @@ public class SeleniumOperations1 {
 	
 	public static void officeworks_registration_page(String url) throws IOException {
 		// Step 1: Locate chrome driver folder in the local drive.
-		System.setProperty("webdriver.chrome.driver", "C:/Users/Gruhi/Desktop/707/chromedriver-win64/chromedriver.exe");
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Gruhi\\Downloads\\geckodriver-v0.34.0-win32\\geckodriver.exe");
 		// Step 2: Use above chrome driver to open up a chromium browser.
 		System.out.println("Fire up chrome browser.");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new FirefoxDriver();
 		
-		System.out.println("Driver info: " + driver);
-		
-		sleep(2);
-	
+			
 		// Load a webpage in chromium browser.
 		driver.get(url);
 		
